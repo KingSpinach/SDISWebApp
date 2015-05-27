@@ -1,0 +1,18 @@
+<ion-view view-title="Search" name="home-view">
+  <ion-content class="padding backgroundGrey" ng-controller="SearchCtrl">
+  	<div class="list list-inset backgroundGrey">
+      <h4 style="text-align: center;">Results:</h4>
+         <p style="text-align:center;">Latitude: {{lat}}</p>
+         <p style="text-align:center;">Longitude: {{lon}}</p>
+         	{{status}}
+         	<ion-list>
+     			<ion-item class="item item-avatar" ng-repeat="place in places" type="item-text-wrap" href="#/user/local/{{place.place_id}}" >
+			        <img class="thumbnail-left" ng-src="{{place.icon}}"><b>{{place.name}}</b>
+			        <p>{{place.vicinity}}</p>
+     			</ion-item>
+    		</ion-list>
+         <div id="map" data-tap-disabled="true"></div>
+      </div>
+      <br>
+  </ion-content>
+</ion-view>

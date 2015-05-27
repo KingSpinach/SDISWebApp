@@ -1,0 +1,18 @@
+<ion-view view-title="Comment:" name="comment-view">
+  <ion-content class="padding backgroundGrey">
+  	<div class="list list-inset backgroundGrey">
+      	<textarea type="text" ng-model="user.comment" placeholder="Comment here..."></textarea>
+			<div class="rating">
+			    <legend>Please rate:</legend>
+			    <input type="radio" id="star5" name="rating" value="5" ng-click="ratingstar(5)"/><label for="star5" title="Rocks!">5 stars</label>
+			    <input type="radio" id="star4" name="rating" value="4" ng-click="ratingstar(4)"/><label for="star4" title="Pretty good">4 stars</label>
+			    <input type="radio" id="star3" name="rating" value="3" ng-click="ratingstar(3)"/><label for="star3" title="Meh">3 stars</label>
+			    <input type="radio" id="star2" name="rating" value="2" ng-click="ratingstar(2)"/><label for="star2" title="Kinda bad">2 stars</label>
+			    <input type="radio" id="star1" name="rating" value="1" ng-click="ratingstar(1)"/><label for="star1" title="Sucks big time">1 star</label>
+			</div>
+      	<button class="button button-block button-calm" ng-click="submit()">
+      	Submit comment
+      	</button>
+    </div>
+  </ion-content>
+</ion-view>

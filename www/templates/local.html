@@ -1,0 +1,48 @@
+<ion-view view-title="{{titulo}}" name="local-view">
+  <ion-content class="padding backgroundGrey">
+  	<h3 style="text-align: center;">{{titulo}}</h3>
+    <div id="maplocal" data-tap-disabled="true"></div>
+  	<div class="list">
+		<!--<img class="thumbnail-left" src="{{imagem}}">-->
+
+		<div class="item item-divider">General Info</div>
+		<span class="item" id="address"><b>Address:</b><br> {{morada}}</span>
+		<span class="item" ng-show="aberto==true"><b>Open:</b> Yes</span>
+		<span class="item" ng-show="aberto==false"><b>Open:</b> No</span>
+		<span class="item"><b>Rating:</b> {{rate}} </span>
+		<span class="item"><b>Store type:</b>
+			<span ng-repeat="tipo in tipos"><br>{{tipo}}</span>
+		</span>
+		<span class="item"><b>Prices:</b> {{preco}}</span>
+
+		<div class="item item-divider">Contatos</div>
+		<span class="item"><i class="icon placeholder-icon ion-ios-telephone"></i> <b>Phone Number:</b> {{telefone}}</span>
+		<span class="item"><i class="icon placeholder-icon ion-at"></i> <b>Website:</b> <a href="{{website}}" target="_blank">{{website}}</a></span>
+
+		<div class="item item-divider">Timetable</div>
+		<span ng-if="!aberturas">
+  			<span class="item">No timetable available</span>
+		</span>
+		<span ng-repeat="abertura in aberturas">
+				<span ng-if="!abertura.close">
+						<span class="item">Allways open</span>
+				</span>
+				<span ng-if="abertura.close">
+						<span class="item">
+							<span ng-show="abertura.open.day==0">Sunday</span>
+							<span ng-show="abertura.open.day==1">Monday</span>
+							<span ng-show="abertura.open.day==2">Tuesday</span>
+							<span ng-show="abertura.open.day==3">Wednesday</span>
+							<span ng-show="abertura.open.day==4">Thursday</span>
+							<span ng-show="abertura.open.day==5">Friday</span>
+							<span ng-show="abertura.open.day==6">Saturday</span>
+						 	: {{abertura.open.time.substring(0,2)}}:{{abertura.open.time.substring(2,4)}} - {{abertura.close.time.substring(0,2)}}:{{abertura.close.time.substring(2,4)}}</span>
+				</span>
+		</span>
+
+		<div class="item item-divider">Opinions</div>		
+		<button class="button button-block button-calm" ng-click="comment()">Comment</button>
+		<br>
+	</div>
+  </ion-content>
+</ion-view>
